@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>احجز موعدك | صالون العبود للحلاقة</title>
+<meta name="description" content="احجز موعدك في صالون العبود للحلاقة بسهولة وأكّد حجزك مباشرة عبر واتساب. بدون دفع أونلاين.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:title" content="احجز موعدك | صالون العبود للحلاقة">
+<meta property="og:description" content="احجز موعدك في صالون العبود للحلاقة بسهولة وأكّد حجزك مباشرة عبر واتساب. بدون دفع أونلاين.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_AR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0a0a'/%3E%3Cg fill='none' stroke='%23D4AF37' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' transform='translate(14 14) scale(1.5)'%3E%3Ccircle cx='6' cy='6' r='3'/%3E%3Cpath d='M8.12 8.12 12 12'/%3E%3Cpath d='M20 4 8.12 15.88'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Cpath d='M14.8 14.8 20 20'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&amp;family=Cairo:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="booking">
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <img class="page-hero-bg" data-img="shop" alt="">
+    <div class="container reveal">
+      <span class="eyebrow">الحجز</span>
+      <h1 class="gold-text">احجز موعدك</h1>
+      <p>أكّد حجزك مباشرة عبر واتساب، بدون أي دفع مسبق.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:32px">
+    <div class="container booking-layout">
+      <form id="bookingForm" class="panel form-panel reveal" novalidate>
+        <h2>بيانات الحجز</h2>
+        <p class="form-hint">جميع الحقول مطلوبة</p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">الاسم</label>
+            <input class="field-input" id="name" type="text" autocomplete="name" placeholder="اسمك الكريم" aria-describedby="name-error">
+            <p class="field-error" id="name-error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="phone">رقم الجوال</label>
+            <input class="field-input" id="phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" style="text-align:right" placeholder="05X XXX XXXX" aria-describedby="phone-error">
+            <p class="field-error" id="phone-error" role="alert"></p>
+          </div>
+          <div class="field full">
+            <label for="service">نوع الخدمة</label>
+            <select class="field-input" id="service" aria-describedby="service-error"></select>
+            <p class="field-error" id="service-error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="date">التاريخ</label>
+            <input class="field-input" id="date" type="date" aria-describedby="date-error">
+            <p class="field-error" id="date-error" role="alert"></p>
+          </div>
+          <div class="field">
+            <label for="time">الوقت</label>
+            <select class="field-input" id="time" aria-describedby="time-error"></select>
+            <p class="field-error" id="time-error" role="alert"></p>
+          </div>
+        </div>
+
+        <div class="summary" id="serviceSummary" hidden></div>
+
+        <button type="submit" class="btn btn-gold btn-block">
+          <svg viewBox="0 0 32 32" fill="currentColor" class="icon" aria-hidden="true" style="width:20px;height:20px"><path d="M16.02 3C9.4 3 4 8.38 4 15c0 2.36.7 4.55 1.9 6.4L4 29l7.8-1.85A11.9 11.9 0 0 0 16.02 27C22.64 27 28 21.62 28 15S22.64 3 16.02 3Zm6.9 17.03c-.29.82-1.6 1.55-2.2 1.63-.56.08-1.27.11-2.06-.13-.47-.15-1.08-.35-1.86-.68-3.27-1.41-5.4-4.71-5.56-4.93-.16-.22-1.33-1.77-1.33-3.38s.84-2.4 1.14-2.73c.29-.32.64-.4.85-.4h.61c.2 0 .46-.04.72.55.29.66.98 2.28 1.06 2.44.08.16.13.35.02.57-.11.22-.16.35-.32.55-.16.19-.34.43-.48.58-.16.16-.33.34-.14.66.19.32.85 1.4 1.83 2.27 1.26 1.12 2.32 1.47 2.64 1.63.32.16.5.13.69-.08.19-.22.81-.94 1.03-1.26.22-.32.43-.27.72-.16.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.14.08.79-.21 1.6Z"/></svg>
+          تأكيد الحجز على واتساب
+        </button>
+        <p class="form-note">سيُفتح واتساب برسالة جاهزة بتفاصيل حجزك. الدفع في الصالون فقط — لا يوجد دفع أونلاين.</p>
+        <p class="wa-fallback" id="waFallback" hidden>لم يُفتح واتساب؟ <a href="#" target="_blank" rel="noopener noreferrer">اضغط هنا</a></p>
+      </form>
+
+      <aside class="reveal" style="transition-delay:.15s">
+        <div class="panel">
+          <h2>كيف يتم الحجز؟</h2>
+          <ol class="steps">
+            <li><b>1</b><span>اختر الخدمة والتاريخ والوقت المناسب لك.</span></li>
+            <li><b>2</b><span>اضغط «تأكيد الحجز على واتساب» لتُفتح رسالة جاهزة.</span></li>
+            <li><b>3</b><span>أرسل الرسالة وسنؤكد موعدك معك مباشرة.</span></li>
+          </ol>
+        </div>
+        <div class="panel">
+          <h2>تواصل مباشر</h2>
+          <ul class="contact-box" id="contactBox"></ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="script.js"></script>
+</body>
+</html>
