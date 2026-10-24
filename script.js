@@ -10,9 +10,9 @@
   const SITE = {
     name: "صالون العبود للحلاقة",
     // رقم واتساب بالصيغة الدولية بدون + أو 00  (مثال: 972501234567)
-    whatsapp: "0525840464",
-    phoneDisplay: "0525840464",
-    phoneHref: "0525840464",
+    whatsapp: "+972525840464",
+    phoneDisplay: "+972525840464",
+    phoneHref: "+972525840464",
     instagram: "https://instagram.com/",
     instagramHandle: "@alabboud_salon",
     address: "إفرات",
