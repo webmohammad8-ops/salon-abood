@@ -180,7 +180,7 @@ const SITE = {
   /* ===================== 6) الهيدر / الفوتر / زر واتساب ===================== */
   const logoHTML =
     '<span class="logo"><span class="logo-mark">' + icon("scissors", "icon") +
-    '</span><span class="logo-text"><strong class="gold-text">صالون العبود</strong><small>Al-Abboud Barber</small></span></span>';
+    '</span><span class="logo-text"><strong class="gold-text">صالون ايليت سنتر </strong><small>ELITE TOUCH</small></span></span>';
 
   function renderHeader(page) {
     const host = $("#site-header");
