@@ -46,18 +46,206 @@ const SITE = {
   };
 
   /* ===================== 3) الخدمات والأسعار (₪) ===================== */
-  const SERVICES = [
-    { id: "classic", name: "حلاقة عادية", price: 40, icon: "scissors",
-      desc: "قصّة نظيفة ومتقنة تناسب شكل وجهك وأسلوبك، بتفاصيل دقيقة وخطوط واضحة." },
-    { id: "cut-beard", name: "حلاقة + لحية", price: 60, icon: "razor",
-      desc: "قصّة شعر كاملة مع تحديد وتشذيب اللحية بخطوط حادة ومظهر أنيق متكامل." },
-    { id: "kids", name: "قصات اطفال", price: 30, icon: "smile",
-      desc: "قصّات عصرية للأطفال بأسلوب لطيف وصبور، ليخرج الصغير مرتاحًا وسعيدًا." },
-    { id: "facial", name: "تنظيف بشرة", price: 50, icon: "sparkle",
-      desc: "تنظيف عميق يزيل الشوائب ويمنح بشرتك انتعاشًا ونضارة واضحة." },
-    { id: "protein", name: "بروتين شعر", price: 150, icon: "drop",
-      desc: "علاج بروتين يمنح الشعر نعومة ولمعانًا وسهولة في التصفيف ويقلل التجعّد." },
-  ];
+```javascript
+const SERVICES = [
+  {
+    id: "skin-deep",
+    name: "تنظيف بشرة عميق",
+    price: null,
+    icon: "sparkle",
+    desc: "جلسة عناية عميقة بالبشرة للمساعدة في إزالة الشوائب وتحسين مظهرها."
+  },
+  {
+    id: "hydrafacial",
+    name: "هايدرافيشل (HydraFacial)",
+    price: null,
+    icon: "sparkle",
+    desc: "جلسة عناية بالبشرة تهدف إلى تنظيفها وترطيبها ومنحها مظهرًا أكثر نضارة."
+  },
+  {
+    id: "skin-brightening",
+    name: "تفتيح البشرة",
+    price: null,
+    icon: "sparkle",
+    desc: "جلسة عناية تهدف إلى تحسين إشراقة البشرة وتوحيد مظهر لونها."
+  },
+  {
+    id: "pigmentation",
+    name: "العناية بالتصبغات",
+    price: null,
+    icon: "sparkle",
+    desc: "عناية مخصصة لتحسين مظهر التصبغات والبقع الجلدية."
+  },
+  {
+    id: "skin-glow",
+    name: "جلسات نضارة البشرة",
+    price: null,
+    icon: "sparkle",
+    desc: "جلسات عناية تمنح البشرة مظهرًا منتعشًا ومشرقًا."
+  },
+  {
+    id: "skin-body-peeling",
+    name: "تقشير البشرة والجسم",
+    price: null,
+    icon: "sparkle",
+    desc: "جلسات تقشير للعناية بالبشرة والجسم وتحسين ملمس الجلد."
+  },
+  {
+    id: "classic",
+    name: "قص شعر كلاسيك",
+    price: null,
+    icon: "scissors",
+    desc: "قصة شعر كلاسيكية متقنة تناسب إطلالتك."
+  },
+  {
+    id: "skin-fade",
+    name: "Skin Fade",
+    price: null,
+    icon: "scissors",
+    desc: "قصة بتدرج دقيق ولمسات احترافية للحصول على مظهر عصري."
+  },
+  {
+    id: "beard",
+    name: "تحديد وترتيب اللحية",
+    price: null,
+    icon: "razor",
+    desc: "تحديد وتشذيب اللحية بعناية للحصول على مظهر مرتب وأنيق."
+  },
+  {
+    id: "hair-beard",
+    name: "قص شعر ولحية",
+    price: null,
+    icon: "scissors",
+    desc: "خدمة متكاملة لقص الشعر وتحديد اللحية وتنسيق الإطلالة."
+  },
+  {
+    id: "hair-design",
+    name: "رسم وتصميم على الشعر",
+    price: null,
+    icon: "scissors",
+    desc: "تصاميم ورسومات على الشعر لإطلالة مميزة."
+  },
+  {
+    id: "vip",
+    name: "حلاقة VIP بغرفة خاصة",
+    price: null,
+    icon: "star",
+    desc: "تجربة حلاقة خاصة توفر مزيدًا من الخصوصية والاهتمام بالتفاصيل."
+  },
+  {
+    id: "groom",
+    name: "تجهيز العريس",
+    price: null,
+    icon: "star",
+    desc: "تجهيز متكامل للعريس للعناية بالمظهر قبل المناسبة."
+  },
+  {
+    id: "hair-color",
+    name: "صبغات الشعر",
+    price: null,
+    icon: "palette",
+    desc: "صبغات شعر بألوان تناسب إطلالتك."
+  },
+  {
+    id: "color-removal",
+    name: "سحب اللون",
+    price: null,
+    icon: "palette",
+    desc: "خدمة سحب لون الشعر وفق حالته والنتيجة المطلوبة."
+  },
+  {
+    id: "protein",
+    name: "بروتين الشعر",
+    price: null,
+    icon: "drop",
+    desc: "عناية بالشعر للمساعدة في تحسين النعومة وتقليل التجعد."
+  },
+  {
+    id: "keratin",
+    name: "كرياتين وتنعيم الشعر",
+    price: null,
+    icon: "drop",
+    desc: "خدمة لتنعيم الشعر وتحسين مظهره وسهولة تصفيفه."
+  },
+  {
+    id: "hair-treatment",
+    name: "علاجات الشعر",
+    price: null,
+    icon: "drop",
+    desc: "جلسات عناية بالشعر وفق احتياجاته."
+  },
+  {
+    id: "hair-styling",
+    name: "تصفيف الشعر",
+    price: null,
+    icon: "scissors",
+    desc: "تصفيف الشعر وتنسيقه بما يناسب إطلالتك."
+  },
+  {
+    id: "manicure",
+    name: "مانيكير رجالي",
+    price: null,
+    icon: "sparkle",
+    desc: "عناية بالأظافر واليدين للحصول على مظهر مرتب."
+  },
+  {
+    id: "pedicure",
+    name: "بديكير رجالي",
+    price: null,
+    icon: "sparkle",
+    desc: "عناية بالأظافر والقدمين وتحسين نظافتهما ومظهرهما."
+  },
+  {
+    id: "nail-care",
+    name: "تنظيف وترتيب الأظافر",
+    price: null,
+    icon: "sparkle",
+    desc: "تنظيف الأظافر وترتيبها بعناية."
+  },
+  {
+    id: "dead-skin",
+    name: "إزالة الجلد الميت",
+    price: null,
+    icon: "sparkle",
+    desc: "جلسة عناية للمساعدة في إزالة الجلد الميت."
+  },
+  {
+    id: "hands-feet",
+    name: "العناية باليدين والقدمين",
+    price: null,
+    icon: "sparkle",
+    desc: "عناية متكاملة باليدين والقدمين."
+  },
+  {
+    id: "relax-massage",
+    name: "مساج استرخائي",
+    price: null,
+    icon: "heart",
+    desc: "جلسة استرخاء تساعد على تخفيف التوتر والشعور بالراحة."
+  },
+  {
+    id: "therapeutic-massage",
+    name: "مساج علاجي",
+    price: null,
+    icon: "heart",
+    desc: "جلسة مساج وفق الاحتياج، مع مراعاة الحالة الصحية."
+  },
+  {
+    id: "hijama",
+    name: "الحجامة",
+    price: null,
+    icon: "heart",
+    desc: "خدمة حجامة تُجرى بواسطة مختص مؤهل مع الالتزام بإجراءات السلامة."
+  },
+  {
+    id: "dry-cupping",
+    name: "كاسات الهواء الجافة",
+    price: null,
+    icon: "heart",
+    desc: "جلسة كاسات هواء جافة لدى مختص مؤهل."
+  }
+];
+```
   const QUICK_IDS = ["classic", "cut-beard", "facial"]; // الخدمات الظاهرة في الرئيسية
 
   const WHY_US = [
