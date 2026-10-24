@@ -57,6 +57,8 @@ const SITE = {
       desc: "مانيكير رجالي، بديكير رجالي، تنظيف وترتيب الأظافر، إزالة الجلد الميت، العناية باليدين والقدمين." },
     { id: "protein", name: "المساج والاسترخاء | WELLNESS", price: 150, icon: "drop",
       desc: "مساج استرخائي، مساج علاجي." },
+      { id: "protein", name: "الحجامة وكاسات الهواء | HIJAMA & CUPPING", price: 150, icon: "drop",
+      desc: "مساج استرخائي، مساج علاجي." },
   ];
   const QUICK_IDS = ["classic", "cut-beard", "facial"]; // الخدمات الظاهرة في الرئيسية
 
