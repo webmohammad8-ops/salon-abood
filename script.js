@@ -47,7 +47,7 @@ const SITE = {
 
   /* ===================== 3) الخدمات والأسعار (₪) ===================== */
  const SERVICES = [
-    { id: "classic", name: "حلاقة عادية", price: 40, icon: "scissors",
+    { id: "classic", name: "العناية بالبشرة | SKIN CARE", price: 40, icon: "scissors",
       desc: "قصّة نظيفة ومتقنة تناسب شكل وجهك وأسلوبك، بتفاصيل دقيقة وخطوط واضحة." },
     { id: "cut-beard", name: "حلاقة + لحية", price: 60, icon: "razor",
       desc: "قصّة شعر كاملة مع تحديد وتشذيب اللحية بخطوط حادة ومظهر أنيق متكامل." },
@@ -58,7 +58,6 @@ const SITE = {
     { id: "protein", name: "بروتين شعر", price: 150, icon: "drop",
       desc: "علاج بروتين يمنح الشعر نعومة ولمعانًا وسهولة في التصفيف ويقلل التجعّد." },
   ];
-```
   const QUICK_IDS = ["classic", "cut-beard", "facial"]; // الخدمات الظاهرة في الرئيسية
 
   const WHY_US = [
