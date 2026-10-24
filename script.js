@@ -7,15 +7,15 @@
   document.documentElement.classList.add("js");
 
   /* ===================== 1) إعدادات الصالون ===================== */
-  const SITE = {
-    name: "صالون ايليت سنتر ",
-    // رقم واتساب بالصيغة الدولية بدون + أو 00  (مثال: 972501234567)
-    whatsapp: "+972525840464",
-    phoneDisplay: "+972525840464",
-    phoneHref: "+972525840464",
-    instagram: "https://instagram.com/",
-    instagramHandle: "@alabboud_salon",
-    address: "إفرات",
+const SITE = {
+  name: "صالون إيليت سنتر",
+  // رقم واتساب بالصيغة الدولية بدون + أو 00  (مثال: 972501234567)
+  whatsapp: "972525840464",
+  phoneDisplay: "052-584-0464",
+  phoneHref: "+972525840464",
+  instagram: "https://instagram.com/",
+  instagramHandle: "@alabboud_salon",
+  address: "إفرات",
     // أوقات الحجز في الفورم (من، إلى، كل كم دقيقة)
     hours: { open: "10:00", close: "20:30", step: 30 },
   };
