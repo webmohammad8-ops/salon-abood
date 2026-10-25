@@ -552,6 +552,26 @@ const SITE = {
     });
   }
 
+
+    function initCourses() {
+    const host = $("#course-groups");
+    if (!host) return;
+    const reg = (courseName) =>
+      waLinkTo(ACADEMY.phone, "مرحبا، بدي أستفسر وأسجّل بدورة: " + courseName + " (" + ACADEMY.name + ")");
+
+    host.innerHTML = COURSE_GROUPS.map((g) =>
+      '<section class="course-group reveal" aria-labelledby="cg-' + g.num + '">' +
+      '<div class="cg-head"><span class="cg-num" aria-hidden="true">' + g.num + "</span><div>" +
+      '<h2 id="cg-' + g.num + '">' + g.title + '</h2><span class="cg-en" dir="ltr">' + g.en + "</span></div></div>" +
+      '<div class="course-grid">' + g.items.map((c) =>
+        '<article class="course-card">' +
+        '<div class="cc-top"><h3>' + c.name + "</h3>" + (c.en ? '<span class="cc-en" dir="ltr">' + c.en + "</span>" : "") + "</div>" +
+        (c.desc ? "<p>" + c.desc + "</p>" : "") +
+        '<a class="cc-reg" href="' + reg(c.name) + '" target="_blank" rel="noopener noreferrer">سجّل بهالدورة ' + icon("arrow", "icon icon-sm") + "</a></article>"
+      ).join("") + "</div>" +
+      (g.note ? '<p class="cg-note">' + g.note + "</p>" : "") + "</section>"
+    ).join("");
+
   /* ===================== 9) التشغيل ===================== */
   function init() {
     const page = document.body.dataset.page;
