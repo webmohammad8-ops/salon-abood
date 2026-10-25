@@ -1,5 +1,5 @@
 /* ==========================================================================
-   صالون ايليت سنتر  — JavaScript (بدون أي مكتبات أو سيرفر)
+   ELITE CENTRE — صالون إيليت سنتر — JavaScript (بدون أي مكتبات أو سيرفر)
    كل البيانات القابلة للتعديل موجودة في أعلى هذا الملف
    ========================================================================== */
 (function () {
@@ -7,30 +7,18 @@
   document.documentElement.classList.add("js");
 
   /* ===================== 1) إعدادات الصالون ===================== */
-const SITE = {
-  name: "صالون ايليت سنتر ",
-
-  // رقم واتساب لاستقبال الحجوزات
-  whatsapp: "972525840464",
-
-  // رقم الهاتف المعروض للزوار
-  phoneDisplay: "052-584-0464",
-
-  // رابط الاتصال المباشر
-  phoneHref: "+972525840464",
-
-  instagram: "https://instagram.com/",
-  instagramHandle: "@alabboud_salon",
-
-  address: "بيت جالا",
-
-  // أوقات الحجز
-  hours: {
-    open: "10:00",
-    close: "20:30",
-    step: 30
-  }
-};
+  const SITE = {
+    name: "صالون إيليت سنتر",
+    // رقم واتساب بالصيغة الدولية بدون + أو 00  (مثال: 972501234567)
+    whatsapp: "972525840464",
+    phoneDisplay: "052-584-0464",
+    phoneHref: "+972525840464",
+    instagram: "https://instagram.com/",
+    instagramHandle: "@alabboud_salon",
+    address: "إفرات",
+    // أوقات الحجز في الفورم (من، إلى، كل كم دقيقة)
+    hours: { open: "10:00", close: "20:30", step: 30 },
+  };
 
   /* ===================== 2) الصور ===================== */
   // صور Unsplash مجانية. لاستبدالها بصور صالونك ضعها في مجلد images/ واكتب "images/اسم.jpg"
@@ -46,19 +34,17 @@ const SITE = {
   };
 
   /* ===================== 3) الخدمات والأسعار (₪) ===================== */
- const SERVICES = [
-    { id: "classic", name: "العناية بالبشرة | SKIN CARE", price: 40, icon: "scissors",
-      desc: "تنظيف بشرة عميق هايدرافيشل (HydraFacial) تفتيح البشرة العناية بالتصبغات جلسات نضارة البشرة تقشير البشرة والجسم." },
-    { id: "cut-beard", name: "الحلاقة الرجالية | BARBER CLUB", price: 60, icon: "razor",
-      desc: "قص شعر كلاسيك، Skin Fade، تحديد وترتيب اللحية، قص شعر ولحية، رسم وتصميم على الشعر، حلاقة VIP بغرفة خاصة، تجهيز العريس." },
-    { id: "kids", name: "علاجات الشعر | HAIR LAB", price: 30, icon: "smile",
-      desc: "صبغات الشعر، سحب اللون، بروتين الشعر، كرياتين وتنعيم الشعر، علاجات الشعر، تصفيف الشعر." },
-    { id: "facial", name: "الأظافر والعناية باليدين والقدمين | NAIL CARE", price: 50, icon: "sparkle",
-      desc: "مانيكير رجالي، بديكير رجالي، تنظيف وترتيب الأظافر، إزالة الجلد الميت، العناية باليدين والقدمين." },
-    { id: "protein", name: "المساج والاسترخاء | WELLNESS", price: 150, icon: "drop",
-      desc: "مساج استرخائي، مساج علاجي." },
-      { id: "protein", name: "الحجامة وكاسات الهواء | HIJAMA & CUPPING", price: 150, icon: "drop",
-      desc: "مساج استرخائي، مساج علاجي." },
+  const SERVICES = [
+    { id: "classic", name: "حلاقة عادية", price: 40, icon: "scissors",
+      desc: "قصّة نظيفة ومتقنة تناسب شكل وجهك وأسلوبك، بتفاصيل دقيقة وخطوط واضحة." },
+    { id: "cut-beard", name: "حلاقة + لحية", price: 60, icon: "razor",
+      desc: "قصّة شعر كاملة مع تحديد وتشذيب اللحية بخطوط حادة ومظهر أنيق متكامل." },
+    { id: "kids", name: "قصات اطفال", price: 30, icon: "smile",
+      desc: "قصّات عصرية للأطفال بأسلوب لطيف وصبور، ليخرج الصغير مرتاحًا وسعيدًا." },
+    { id: "facial", name: "تنظيف بشرة", price: 50, icon: "sparkle",
+      desc: "تنظيف عميق يزيل الشوائب ويمنح بشرتك انتعاشًا ونضارة واضحة." },
+    { id: "protein", name: "بروتين شعر", price: 150, icon: "drop",
+      desc: "علاج بروتين يمنح الشعر نعومة ولمعانًا وسهولة في التصفيف ويقلل التجعّد." },
   ];
   const QUICK_IDS = ["classic", "cut-beard", "facial"]; // الخدمات الظاهرة في الرئيسية
 
@@ -70,51 +56,7 @@ const SITE = {
     { icon: "flask", title: "منتجات أصلية",
       text: "نستخدم منتجات عناية أصلية من علامات موثوقة تحافظ على صحة شعرك وبشرتك." },
   ];
-  const COURSE_GROUPS = [
-    { num: "01", title: "دورات الحلاقة", en: "BARBER COURSES", items: [
-      { name: "الدورة المكثفة", en: "INTENSIVE COURSE", desc: "تدريب عملي مكثف لتعلّم أساسيات الحلاقة وتقنياتها، من استخدام الأدوات إلى تنفيذ القصّات والتدرّجات." },
-      { name: "الدورة العادية", en: "BASIC COURSE", desc: "مسار تدريبي لتعلّم أساسيات الحلاقة خطوة بخطوة، من المبادئ الأولى إلى التطبيق العملي." },
-      { name: "دورة تطوير الخبرة", en: "SKILL UPGRADE", desc: "للحلاقين اللي بدهم يطوّروا مستواهم، ويحسّنوا دقة القصّات وسرعة التنفيذ والتشطيب." },
-      { name: "دورة Skin Fade", en: "", desc: "تعلّم تقنيات التدرّج، الدمج بين الأطوال، والوصول إلى تشطيب نظيف واحترافي." },
-      { name: "دورة الرسم على الشعر", en: "HAIR DESIGN", desc: "تعلّم تصميم الخطوط والرسومات على الشعر، وتطوير الدقة والإبداع في التنفيذ." },
-    ] },
-    { num: "02", title: "دورات الصبغات", en: "HAIR COLOR COURSES", items: [
-      { name: "دورة أساسيات الصبغة", desc: "فهم الألوان واختيار الدرجة المناسبة." },
-      { name: "دورة سحب اللون", desc: "التعرّف على تقنيات سحب اللون وتقييم حالة الشعر." },
-      { name: "دورة تصحيح الألوان", desc: "التعامل مع اختلاف الدرجات والنتائج غير المرغوبة." },
-      { name: "دورة تقنيات الصبغ الحديثة", desc: "تطبيق أساليب الصبغة المختلفة عمليًا." },
-    ] },
-    { num: "03", title: "دورات علاجات الشعر", en: "HAIR TREATMENT COURSES", items: [
-      { name: "دورة البروتين", desc: "التعرّف على المنتجات وطرق التطبيق والعناية اللاحقة." },
-      { name: "دورة الكرياتين والتنعيم", desc: "فهم تقنيات التنعيم واختيار المنتج المناسب." },
-      { name: "دورة العناية بالشعر", desc: "التعرّف على أنواع الشعر واحتياجاته وكيفية اختيار العلاج المناسب." },
-    ] },
-    { num: "04", title: "دورات العناية بالبشرة", en: "SKIN CARE COURSES", items: [
-      { name: "أساسيات العناية بالبشرة" },
-      { name: "تنظيف البشرة" },
-      { name: "الهايدرافيشل", desc: "حسب الأجهزة والتقنيات المتوفرة." },
-      { name: "تقنيات العناية بنضارة البشرة" },
-      { name: "تقشير البشرة ومبادئ اختيار المنتجات المناسبة" },
-    ] },
-    { num: "05", title: "دورات العناية الشخصية", en: "PERSONAL CARE COURSES", items: [
-      { name: "المانيكير والبديكير الرجالي" },
-      { name: "أساسيات العناية باليدين والقدمين" },
-      { name: "التعرّف على الأدوات والنظافة والتعقيم" },
-    ] },
-    { num: "06", title: "دورات الحجامة وكاسات الهواء", en: "HIJAMA & CUPPING COURSES",
-      note: "تُقدَّم هذه الدورات فقط ضمن نطاق التدريب المؤهل والمتطلبات الصحية والتنظيمية المعمول بها.",
-      items: [
-      { name: "أساسيات الحجامة ومبادئ السلامة" },
-      { name: "التعرّف على الأدوات والتعقيم" },
-      { name: "أساسيات كاسات الهواء الجافة" },
-    ] },
-  ];
-  const ACADEMY_PERKS = [
-    "تدريب نظري وعملي حسب البرنامج.",
-    "محتوى تدريبي مناسب لمستوى الدورة.",
-    "شهادة صادرة عن ELITE CENTRE عند استيفاء متطلبات الدورة.",
-    "تفاصيل واضحة عن مدة الدورة ورسومها ومواعيدها قبل التسجيل.",
-  ];
+
   /* ===================== 4) معرض الأعمال (12 صورة) ===================== */
   // لإضافة صورة "قبل" حقيقية: اكتب مسارها في الحقل before مثل "images/before-1.jpg"
   // وسيظهر زر قبل / بعد تلقائيًا داخل نافذة التكبير.
@@ -128,7 +70,7 @@ const SITE = {
     { title: "تشذيب لحية كثيفة", tag: "لحية", src: IMG.beard, pos: "35% center", before: null },
     { title: "أجواء الصالون", tag: "المكان", src: IMG.shop, pos: "center", before: null },
     { title: "قصّة شبابية", tag: "قصّة", src: IMG.razor, pos: "70% 40%", before: null },
-    { title: "كرسي العبود", tag: "المكان", src: IMG.chair, pos: "center", before: null },
+    { title: "كرسي الصالون", tag: "المكان", src: IMG.chair, pos: "center", before: null },
     { title: "تدرج متوسط", tag: "قصّة", src: IMG.hero, pos: "center 70%", before: null },
     { title: "اللمسة الأخيرة", tag: "تصفيف", src: IMG.barber, pos: "center 65%", before: null },
   ];
@@ -174,13 +116,66 @@ const SITE = {
       desc: "ترطيب خفيف يهدّئ البشرة بعد الحلاقة ويمنحها نضارة." },
   ];
 
+  /* ===================== الدورات — ELITE ACADEMY ===================== */
+  const ACADEMY = {
+    name: "ELITE ACADEMY",
+    nameAr: "أكاديمية إيليت للتدريب",
+    phone: "0559425445",            // رقم الاستفسار والتسجيل (يُحوَّل تلقائيًا للصيغة الدولية)
+    phoneDisplay: "055-942-5445",
+  };
+  const COURSE_GROUPS = [
+    { num: "01", title: "دورات الحلاقة", en: "BARBER COURSES", items: [
+      { name: "الدورة المكثفة", en: "INTENSIVE COURSE", desc: "تدريب عملي مكثف لتعلّم أساسيات الحلاقة وتقنياتها، من استخدام الأدوات إلى تنفيذ القصّات والتدرّجات." },
+      { name: "الدورة العادية", en: "BASIC COURSE", desc: "مسار تدريبي لتعلّم أساسيات الحلاقة خطوة بخطوة، من المبادئ الأولى إلى التطبيق العملي." },
+      { name: "دورة تطوير الخبرة", en: "SKILL UPGRADE", desc: "للحلاقين اللي بدهم يطوّروا مستواهم، ويحسّنوا دقة القصّات وسرعة التنفيذ والتشطيب." },
+      { name: "دورة Skin Fade", en: "", desc: "تعلّم تقنيات التدرّج، الدمج بين الأطوال، والوصول إلى تشطيب نظيف واحترافي." },
+      { name: "دورة الرسم على الشعر", en: "HAIR DESIGN", desc: "تعلّم تصميم الخطوط والرسومات على الشعر، وتطوير الدقة والإبداع في التنفيذ." },
+    ] },
+    { num: "02", title: "دورات الصبغات", en: "HAIR COLOR COURSES", items: [
+      { name: "دورة أساسيات الصبغة", desc: "فهم الألوان واختيار الدرجة المناسبة." },
+      { name: "دورة سحب اللون", desc: "التعرّف على تقنيات سحب اللون وتقييم حالة الشعر." },
+      { name: "دورة تصحيح الألوان", desc: "التعامل مع اختلاف الدرجات والنتائج غير المرغوبة." },
+      { name: "دورة تقنيات الصبغ الحديثة", desc: "تطبيق أساليب الصبغة المختلفة عمليًا." },
+    ] },
+    { num: "03", title: "دورات علاجات الشعر", en: "HAIR TREATMENT COURSES", items: [
+      { name: "دورة البروتين", desc: "التعرّف على المنتجات وطرق التطبيق والعناية اللاحقة." },
+      { name: "دورة الكرياتين والتنعيم", desc: "فهم تقنيات التنعيم واختيار المنتج المناسب." },
+      { name: "دورة العناية بالشعر", desc: "التعرّف على أنواع الشعر واحتياجاته وكيفية اختيار العلاج المناسب." },
+    ] },
+    { num: "04", title: "دورات العناية بالبشرة", en: "SKIN CARE COURSES", items: [
+      { name: "أساسيات العناية بالبشرة" },
+      { name: "تنظيف البشرة" },
+      { name: "الهايدرافيشل", desc: "حسب الأجهزة والتقنيات المتوفرة." },
+      { name: "تقنيات العناية بنضارة البشرة" },
+      { name: "تقشير البشرة ومبادئ اختيار المنتجات المناسبة" },
+    ] },
+    { num: "05", title: "دورات العناية الشخصية", en: "PERSONAL CARE COURSES", items: [
+      { name: "المانيكير والبديكير الرجالي" },
+      { name: "أساسيات العناية باليدين والقدمين" },
+      { name: "التعرّف على الأدوات والنظافة والتعقيم" },
+    ] },
+    { num: "06", title: "دورات الحجامة وكاسات الهواء", en: "HIJAMA & CUPPING COURSES",
+      note: "تُقدَّم هذه الدورات فقط ضمن نطاق التدريب المؤهل والمتطلبات الصحية والتنظيمية المعمول بها.",
+      items: [
+      { name: "أساسيات الحجامة ومبادئ السلامة" },
+      { name: "التعرّف على الأدوات والتعقيم" },
+      { name: "أساسيات كاسات الهواء الجافة" },
+    ] },
+  ];
+  const ACADEMY_PERKS = [
+    "تدريب نظري وعملي حسب البرنامج.",
+    "محتوى تدريبي مناسب لمستوى الدورة.",
+    "شهادة صادرة عن ELITE CENTRE عند استيفاء متطلبات الدورة.",
+    "تفاصيل واضحة عن مدة الدورة ورسومها ومواعيدها قبل التسجيل.",
+  ];
+
   const NAV = [
     { href: "index.html", label: "الرئيسية", page: "home" },
     { href: "about.html", label: "من نحن", page: "about" },
     { href: "gallery.html", label: "أعمالنا", page: "gallery" },
     { href: "services.html", label: "الخدمات", page: "services" },
     { href: "products.html", label: "المنتجات", page: "products" },
-     { href: "courses.html", label: "الدورات ", page: "courses" },
+    { href: "courses.html", label: "الدورات", page: "courses" },
     { href: "booking.html", label: "الحجز", page: "booking" },
   ];
 
@@ -212,8 +207,16 @@ const SITE = {
   const WA_SVG =
     '<svg viewBox="0 0 32 32" fill="currentColor" class="icon" aria-hidden="true"><path d="M16.02 3C9.4 3 4 8.38 4 15c0 2.36.7 4.55 1.9 6.4L4 29l7.8-1.85A11.9 11.9 0 0 0 16.02 27C22.64 27 28 21.62 28 15S22.64 3 16.02 3Zm6.9 17.03c-.29.82-1.6 1.55-2.2 1.63-.56.08-1.27.11-2.06-.13-.47-.15-1.08-.35-1.86-.68-3.27-1.41-5.4-4.71-5.56-4.93-.16-.22-1.33-1.77-1.33-3.38s.84-2.4 1.14-2.73c.29-.32.64-.4.85-.4h.61c.2 0 .46-.04.72.55.29.66.98 2.28 1.06 2.44.08.16.13.35.02.57-.11.22-.16.35-.32.55-.16.19-.34.43-.48.58-.16.16-.33.34-.14.66.19.32.85 1.4 1.83 2.27 1.26 1.12 2.32 1.47 2.64 1.63.32.16.5.13.69-.08.19-.22.81-.94 1.03-1.26.22-.32.43-.27.72-.16.29.11 1.86.88 2.18 1.04.32.16.53.24.61.37.08.14.08.79-.21 1.6Z"/></svg>';
 
-  const waLink = (text) =>
-    "https://wa.me/" + SITE.whatsapp + (text ? "?text=" + encodeURIComponent(text) : "");
+  // يضبط أي رقم تلقائيًا: يشيل + والمسافات والشرطات، ويحوّل 052... إلى 972 52...
+  const normNumber = (v) => {
+    let n = String(v).replace(/\D/g, "");
+    if (n.startsWith("00")) n = n.slice(2);
+    if (n.startsWith("0")) n = "972" + n.slice(1);
+    return n;
+  };
+  const waLinkTo = (num, text) =>
+    "https://wa.me/" + normNumber(num) + (text ? "?text=" + encodeURIComponent(text) : "");
+  const waLink = (text) => waLinkTo(SITE.whatsapp, text);
 
   // الصيغة المطلوبة: مرحبا، بدي احجز [الخدمة] بتاريخ [التاريخ] الساعة [الوقت] اسمي [الاسم]
   const bookingMessage = (d) =>
@@ -225,7 +228,7 @@ const SITE = {
   /* ===================== 6) الهيدر / الفوتر / زر واتساب ===================== */
   const logoHTML =
     '<span class="logo"><span class="logo-mark">' + icon("scissors", "icon") +
-    '</span><span class="logo-text"><strong class="gold-text">صالون ايليت سنتر </strong><small>ELITE TOUCH</small></span></span>';
+    '</span><span class="logo-text"><strong class="gold-text">إيليت سنتر</strong><small>ELITE CENTRE</small></span></span>';
 
   function renderHeader(page) {
     const host = $("#site-header");
@@ -235,7 +238,7 @@ const SITE = {
     ).join("");
     host.innerHTML =
       '<header class="site-header" id="siteHeader"><div class="container header-inner">' +
-      '<a href="index.html" class="brand" aria-label="صالون العبود للحلاقة - الرئيسية">' + logoHTML + "</a>" +
+      '<a href="index.html" class="brand" aria-label="' + SITE.name + ' - الرئيسية">' + logoHTML + "</a>" +
       '<nav class="nav-desktop" aria-label="القائمة الرئيسية">' + links + "</nav>" +
       '<div class="header-actions"><a href="booking.html" class="btn btn-gold btn-sm header-cta">احجز الآن</a>' +
       '<button type="button" class="burger" id="burger" aria-label="فتح القائمة" aria-expanded="false">' +
@@ -267,7 +270,7 @@ const SITE = {
     host.innerHTML =
       '<footer class="site-footer"><div class="container footer-grid">' +
       '<div><a href="index.html" class="brand">' + logoHTML + "</a>" +
-      '<p class="footer-about">فن الحلاقة الرجالية بلمسة فاخرة. أكثر من 10 سنوات من الخبرة والاهتمام بأدق التفاصيل لتخرج بأفضل إطلالة.</p></div>' +
+      '<p class="footer-about">الستايل هويّة، والتفاصيل بتفرق. NO COPIES. NO COMPROMISE.</p></div>' +
       '<div><h3>روابط سريعة</h3><ul>' +
       NAV.map((n) => '<li><a href="' + n.href + '">' + n.label + "</a></li>").join("") +
       "</ul></div>" +
@@ -287,7 +290,7 @@ const SITE = {
   function renderWhatsAppFloat() {
     const a = document.createElement("a");
     a.className = "wa-float";
-    a.href = waLink("مرحبا، بدي أستفسر عن الحجز في صالون العبود");
+    a.href = waLink("مرحبا، بدي أستفسر عن الحجز في " + SITE.name);
     a.target = "_blank";
     a.rel = "noopener noreferrer";
     a.setAttribute("aria-label", "تواصل معنا عبر واتساب");
@@ -355,7 +358,7 @@ const SITE = {
 
     let active = "all";
     const orderLink = (p) =>
-      waLink("مرحبا، بدي اطلب " + p.name + " (" + p.price + "₪) من صالون العبود");
+      waLink("مرحبا، بدي اطلب " + p.name + " (" + p.price + "₪) من " + SITE.name);
 
     const renderFilters = () => {
       filters.innerHTML = PRODUCT_CATS.map((c) =>
@@ -400,6 +403,35 @@ const SITE = {
     });
     renderFilters();
     renderGrid();
+  }
+
+  function initCourses() {
+    const host = $("#course-groups");
+    if (!host) return;
+    const reg = (courseName) =>
+      waLinkTo(ACADEMY.phone, "مرحبا، بدي أستفسر وأسجّل بدورة: " + courseName + " (" + ACADEMY.name + ")");
+
+    host.innerHTML = COURSE_GROUPS.map((g) =>
+      '<section class="course-group reveal" aria-labelledby="cg-' + g.num + '">' +
+      '<div class="cg-head"><span class="cg-num" aria-hidden="true">' + g.num + "</span><div>" +
+      '<h2 id="cg-' + g.num + '">' + g.title + '</h2><span class="cg-en" dir="ltr">' + g.en + "</span></div></div>" +
+      '<div class="course-grid">' + g.items.map((c) =>
+        '<article class="course-card">' +
+        '<div class="cc-top"><h3>' + c.name + "</h3>" + (c.en ? '<span class="cc-en" dir="ltr">' + c.en + "</span>" : "") + "</div>" +
+        (c.desc ? "<p>" + c.desc + "</p>" : "") +
+        '<a class="cc-reg" href="' + reg(c.name) + '" target="_blank" rel="noopener noreferrer">سجّل بهالدورة ' + icon("arrow", "icon icon-sm") + "</a></article>"
+      ).join("") + "</div>" +
+      (g.note ? '<p class="cg-note">' + g.note + "</p>" : "") + "</section>"
+    ).join("");
+
+    const perks = $("#academy-perks");
+    if (perks) perks.innerHTML = ACADEMY_PERKS.map((t) => "<li>" + icon("check", "icon icon-sm") + "<span>" + t + "</span></li>").join("");
+
+    const cta = $("#academy-cta");
+    if (cta) cta.innerHTML =
+      '<a class="btn btn-gold btn-lg" href="' + waLinkTo(ACADEMY.phone, "مرحبا، بدي أستفسر وأسجّل بإحدى دورات " + ACADEMY.name) +
+      '" target="_blank" rel="noopener noreferrer">' + WA_SVG.replace('class="icon"', 'class="icon icon-sm"') + " سجّل عبر واتساب</a>" +
+      '<a class="btn btn-outline btn-lg" href="tel:+' + normNumber(ACADEMY.phone) + '" dir="ltr">' + icon("phone", "icon icon-sm") + " " + ACADEMY.phoneDisplay + "</a>";
   }
 
   function initGallery() {
@@ -552,26 +584,6 @@ const SITE = {
     });
   }
 
-
-    function initCourses() {
-    const host = $("#course-groups");
-    if (!host) return;
-    const reg = (courseName) =>
-      waLinkTo(ACADEMY.phone, "مرحبا، بدي أستفسر وأسجّل بدورة: " + courseName + " (" + ACADEMY.name + ")");
-
-    host.innerHTML = COURSE_GROUPS.map((g) =>
-      '<section class="course-group reveal" aria-labelledby="cg-' + g.num + '">' +
-      '<div class="cg-head"><span class="cg-num" aria-hidden="true">' + g.num + "</span><div>" +
-      '<h2 id="cg-' + g.num + '">' + g.title + '</h2><span class="cg-en" dir="ltr">' + g.en + "</span></div></div>" +
-      '<div class="course-grid">' + g.items.map((c) =>
-        '<article class="course-card">' +
-        '<div class="cc-top"><h3>' + c.name + "</h3>" + (c.en ? '<span class="cc-en" dir="ltr">' + c.en + "</span>" : "") + "</div>" +
-        (c.desc ? "<p>" + c.desc + "</p>" : "") +
-        '<a class="cc-reg" href="' + reg(c.name) + '" target="_blank" rel="noopener noreferrer">سجّل بهالدورة ' + icon("arrow", "icon icon-sm") + "</a></article>"
-      ).join("") + "</div>" +
-      (g.note ? '<p class="cg-note">' + g.note + "</p>" : "") + "</section>"
-    ).join("");
-
   /* ===================== 9) التشغيل ===================== */
   function init() {
     const page = document.body.dataset.page;
@@ -582,6 +594,7 @@ const SITE = {
     initAbout();
     initServices();
     initProducts();
+    initCourses();
     initGallery();
     initBooking();
     initReveal();
