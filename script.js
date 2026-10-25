@@ -136,6 +136,7 @@ const SITE = {
     { href: "gallery.html", label: "أعمالنا", page: "gallery" },
     { href: "services.html", label: "الخدمات", page: "services" },
     { href: "products.html", label: "المنتجات", page: "products" },
+     { href: "courses.html", label: "الدورات ", page: "courses" },
     { href: "booking.html", label: "الحجز", page: "booking" },
   ];
 
